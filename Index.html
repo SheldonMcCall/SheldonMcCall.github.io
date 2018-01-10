@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    <link rel="stylesheet" href="Style/CSS.css">
+    <script src="Js/Script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<nav>	
+    <ul>
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="News.html">News</a></li>
+        <li><a href="Contact.html">Contact me</a></li>
+        <li><a href="#Am">About me</a></li>
+        <li><a href="Hobbies.html">Hobbies Gallery</a></li>
+    </ul>
+</nav>
+
+<div class="top-container">
+  <img id="Me" src="Assets/Me.jpg">
+  <h1>My WebPortfolio</h1>
+  <p>By Sheldon McCall</p>
+  <p>Here's a cool Feature - Set My Background:</p>
+  <input type ="color" id="selColour">
+</div>
+
+<div class="header" id="myHeader">
+  <h2 id="Am" >About me</h2>
+</div>
+
+<div class="content">
+    <h3>Personal Statement:</h3>
+    <p>
+        A highly experienced and creative web developer with several years experience in a variety of exciting projects.
+        A level head and rational approach to problem solving combined with a passion for innovative and fresh ideas has led to a portfolio of impressive website solutions.
+        Technically competent and industry aware means that each project is undertaken with the most up-to-date and relevant programming foundations available.
+        A strong communicator with the ability to convey ideas clearly with an emphasis on client satisfaction.
+    </p>
+
+    <h3>Core Skills:</h3>
+    <p>- Knowledge of CSS, HTML5 and JavaScript.</p>
+    <p>- Experience with design pattern, frameworks and architecture.</p>
+    <p>- Experience with object-oriented software development methodologies.</p>
+    <p>- Integrating new technologies into web properties.</p>
+
+    <h3>Work History:</h3>
+    <h4>Senior Web Developer – Semetrical, London</h4>
+    <p>(November 2013 – Present)</p>
+    <p>Leading a small team on a variety of development projects and delivering solutions to meet and exceed clients’ briefs.</p>
+    <p>Duties:</p>
+    <p>-Being first point of call for new and current clients.</p>
+    <p>-Outlining and presenting specifications for all web based requirements.</p>
+    <p>-Hands on development of all projects from genesis to delivery.</p>
+    <p>-Mentoring team members in development and technical progression.</p>
+    <p>-Writing multiple code and script and ensuring cross browser compliance.</p>
+    <p>-Liaising with SEO developers to ensure all websites contained specific keyword.</p>
+    <p>-Trouble shooting and problem solving.</p>
+    <p>-Monitoring the overall progression of department and staff.</p>
+</div>
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+
+</body>
+</html>

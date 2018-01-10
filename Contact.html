@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+    <link rel="stylesheet" href="Style/CSS.css">
+    <script src="Js/Script.js"></script>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="News.html">News</a></li>
+            <li><a href="#CT">Contact me</a></li>
+            <li><a href="Index.html">About me</a></li>
+            <li><a href="Hobbies.html">Hobbies Gallery</a></li>
+        </ul>
+    </nav>
+
+    <div class="top-container">
+        <img id="Me" src="Assets/Me.jpg">
+        <h1>My WebPortfolio</h1>
+        <p>By Sheldon McCall</p>
+        <p>Here's a cool Feature - Set My Background:</p>
+        <input type="color" id="selColour">
+    </div>
+
+    <div class="header" id="myHeader">
+        <h2 id="CT">Contact Me</h2>
+    </div>
+
+<div class="content">
+    <h3>How to Contact me:</h3>
+        <p>
+           To conatct me you can do it via my mobile number: 07732442900
+           <br>
+           Another way you can contact me is via my email: SheldonDMcCall@gmail.com
+           <br />
+        </p>
+		
+		<P>
+			I also have a local adress in the "Isac Newton Building at Licoln University UK".		   
+		   <br />
+		   Use my Geo-location to compare our adresses:	  
+		</p>
+		
+<!-------------------------------------------------------Geo Location------------------------------->
+		
+<button onclick="getLocation()">Get Your Location:</button>
+
+<div id="mapholder"></div>
+
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyBsUmLMkg-A9FmWZU9tsMOVkPAc9kTBiGQ"></script>
+
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    var latlon = new google.maps.LatLng(lat, lon)
+    var mapholder = document.getElementById('mapholder')
+    mapholder.style.height = '250px';
+    mapholder.style.width = '500px';
+
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+		
+		
+
+		
+		
+<h3>Or Use my Message Service:</h3>
+
+<div class="container">
+  <form>
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="contact">Contact Method</label>
+    <input type="text" id="contactm" name="Cmethod" placeholder="Your contact method...">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+        <option value="uk">UK</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit" onclick="Submit()">
+
+  </form>
+</div>
+
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+
+</body>
+</html>
